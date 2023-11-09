@@ -1,0 +1,29 @@
+<!-- views/home.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Your App</title>
+</head>
+
+<body>
+  <h1>Hello <%= user.displayName %> <%= user.email %></h1>
+  <a href="/logout">Sign out</a>
+  <p>You are signed in with mail id: <%= user.email %></p>
+  <p>Current Indian Time: <%= indianTime %></p>
+
+  <% if (user) { %>
+    <label for="numLines">Number of Lines:</label>
+    <input type="number" id="numLines" name="numLines" min="1" max="100">
+    <button id="displayButton">Display</button>
+    <div id="designContainer"></div>
+  <% } %>
+
+  <script src="/script.js"></script>
+</body>
+
+</html>
