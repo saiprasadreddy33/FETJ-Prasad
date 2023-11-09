@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const designContainer = document.getElementById('designContainer');
         designContainer.innerHTML = '';
   
-        const word = 'formulaqsolutions'; 
+        const word = 'FORMULAQSOLUTIONS'; 
         const wordLength = word.length;
   
         for (let i = 0; i < numLines; i++) {
