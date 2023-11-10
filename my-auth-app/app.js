@@ -1,4 +1,3 @@
-
 const express = require('express');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
@@ -17,7 +16,7 @@ app.use(passport.session());
 passport.use(new GoogleStrategy({
   clientID: '373318624732-u6hmousavfn270qlpp7li6j6uad8kh2a.apps.googleusercontent.com',
   clientSecret: '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',
-  callbackURL: 'http://localhost:3000/auth/google/callback',
+  callbackURL: 'http://localhost:3001/auth/google/callback',
   userProfileURL: 'https://www.googleapis.com/oauth2/v3/userinfo',
   scope: ['profile', 'email']
 }, (accessToken, refreshToken, profile, done) => {
@@ -41,7 +40,7 @@ app.get('/', (req, res) => {
   }
 });
 
-app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
+app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/' }),
@@ -59,9 +58,14 @@ app.get('/home', (req, res) => {
 });
 
 app.get('/logout', (req, res) => {
-  req.logout();
-  res.redirect('/');
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/');
+  });
 });
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
