@@ -52,8 +52,8 @@
     <a href="/logout" id="signOutButton">[Sign Out]</a>
 
     <% if (user.emails && user.emails.length > 0) { %>
-      <p>You are signed in with mail id: <%= user.emails[0].value %></p>
-    <% } %>
+      <p>You are signed in with email <%= user.emails[0].value %></p>
+    <% }%>
 
     <p>Current Indian Time: <%= indianTime %></p>
 
