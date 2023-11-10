@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const spaces = ' '.repeat(numLines - i - 1);
         const chars = [];
 
-        for (let j = 0; j <= i; j++) {
-          chars.push(word[j % wordLength]);
+        for (let j = 0; j < 2 * i + 1; j++) {
+          chars.push(word[(i + j) % wordLength]);
         }
 
         line.innerText = spaces + chars.join(' ');
@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const spaces = ' '.repeat(numLines - i - 1);
         const chars = [];
 
-        for (let j = 0; j <= i; j++) {
-          chars.push(word[j % wordLength]);
+        for (let j = 0; j < 2 * i + 1; j++) {
+          chars.push(word[(i + j) % wordLength]);
         }
 
         line.innerText = spaces + chars.join(' ');
