@@ -1,7 +1,7 @@
 {
   "name": "my-auth-app",
   "version": "1.0.0",
-  "description": "Task for Trainee",
+  "description": "Task for FETJ",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
