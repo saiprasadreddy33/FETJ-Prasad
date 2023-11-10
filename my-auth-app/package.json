@@ -2,11 +2,11 @@
   "name": "my-auth-app",
   "version": "1.0.0",
   "description": "Task for Trainee",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "jest"
+    "start": "node app.js"
   },
-  "author": "",
+  "author": "Prasad Reddy",
   "license": "ISC",
   "dependencies": {
     "crypto": "^1.0.1",
