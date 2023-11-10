@@ -12,21 +12,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
       for (let i = 0; i < numLines; i++) {
         const line = document.createElement('p');
+        line.style.textAlign = 'center';
+
+        const spaces = ' '.repeat(numLines - i - 1);
+        const chars = [];
 
         for (let j = 0; j <= i; j++) {
-          line.innerText += word[j % wordLength];
+          chars.push(word[j % wordLength]);
         }
 
+        line.innerText = spaces + chars.join(' ');
         designContainer.appendChild(line);
       }
 
       for (let i = numLines - 2; i >= 0; i--) {
         const line = document.createElement('p');
+        line.style.textAlign = 'center';
+
+        const spaces = ' '.repeat(numLines - i - 1);
+        const chars = [];
 
         for (let j = 0; j <= i; j++) {
-          line.innerText += word[j % wordLength];
+          chars.push(word[j % wordLength]);
         }
 
+        line.innerText = spaces + chars.join(' ');
         designContainer.appendChild(line);
       }
     } else {
