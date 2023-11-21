@@ -3,6 +3,24 @@ document.addEventListener('DOMContentLoaded', function () {
   displayButton.addEventListener('click', () => {
     const numLines = parseInt(document.getElementById('numLines').value, 10);
 
+    setInterval(updateTime, 1000);
+
+    function updateTime() {
+      const currentTimeElement = document.getElementById('currentTime');
+
+      if (currentTimeElement) {
+        const currentIndianTime = new Date();
+        const hours = currentIndianTime.getHours();
+        const minutes = currentIndianTime.getMinutes();
+        const seconds = currentIndianTime.getSeconds();
+        const formattedTime = `${hours}:${minutes}:${seconds}`;
+
+        currentTimeElement.textContent = `Current Indian Time: ${formattedTime}`;
+      } else {
+        console.error('Element with ID "currentTime" not found.');
+      }
+    }
+
     if (numLines >= 1 && numLines <= 100) {
       const designContainer = document.getElementById('designContainer');
       designContainer.innerHTML = '';
@@ -14,14 +32,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const line = document.createElement('p');
         line.style.textAlign = 'center';
 
-        const spaces = ' '.repeat(numLines - i - 1);
         const chars = [];
 
-        for (let j = 0; j < 2 * i + 1; j++) {
-          chars.push(word[(i + j) % wordLength]);
+        for (let j = 0; j < numLines - i - 1; j++) {
+          chars.push(' ');
         }
 
-        line.innerText = spaces + chars.join(' ');
+        for (let j = 0; j < 2 * i + 1; j++) {
+          chars.push(word[(wordLength + i + j) % wordLength]);
+        }
+
+        line.innerText = chars.join('');
         designContainer.appendChild(line);
       }
 
@@ -29,14 +50,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const line = document.createElement('p');
         line.style.textAlign = 'center';
 
-        const spaces = ' '.repeat(numLines - i - 1);
         const chars = [];
 
-        for (let j = 0; j < 2 * i + 1; j++) {
-          chars.push(word[(i + j) % wordLength]);
+        for (let j = 0; j < numLines - i - 1; j++) {
+          chars.push(' ');
         }
 
-        line.innerText = spaces + chars.join(' ');
+        for (let j = 0; j < 2 * i + 1; j++) {
+          chars.push(word[(wordLength + i + j) % wordLength]);
+        }
+
+        line.innerText = chars.join('');
         designContainer.appendChild(line);
       }
     } else {
