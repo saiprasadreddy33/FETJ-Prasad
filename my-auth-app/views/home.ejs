@@ -5,42 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles.css">
-  <link rel="icon" href="/favicon.ico" />
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    h1,
-    p,
-    label,
-    input,
-    button {
-      margin-bottom: 10px;
-    }
-
-    img {
-      border-radius: 50%;
-      margin-bottom: 20px;
-    }
-
-    #displayButton {
-      padding: 10px;
-      background-color: #4285f4;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    #displayButton:hover {
-      background-color: #357ae8;
-    }
-  </style>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 
 <body>
@@ -55,7 +20,7 @@
       <p>You are signed in with email <%= user.emails[0].value %></p>
     <% }%>
 
-    <p>Current Indian Time: <%= indianTime %></p>
+    <p id="currentTime">Current Indian Time: <%= indianTime %></p>
 
     <label for="numLines">Number of Lines:</label>
     <input type="number" id="numLines" name="numLines" min="1" max="100">
